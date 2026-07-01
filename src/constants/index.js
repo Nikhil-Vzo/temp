@@ -1,0 +1,238 @@
+export const myProjects = [
+  {
+    id: 1,
+    title: "Network Intrusion Detection System",
+    description:
+      "A real-time network-based intrusion detection system that monitors traffic, flags suspicious patterns, and raises alerts using signature-based and anomaly-based detection.",
+    subDescription: [
+      "Captured and parsed live network packets using Scapy to extract protocol headers, payloads, and flow-level features.",
+      "Implemented rule-based detection for common attacks: port scanning, ARP spoofing, SYN floods, and brute-force attempts.",
+      "Built an anomaly detection module with scikit-learn using Isolation Forest and One-Class SVM trained on CICIDS2017 dataset.",
+      "Designed a real-time CLI dashboard with curses that shows live traffic metrics, threat counts, and flagged events.",
+    ],
+    href: "https://github.com/Namankumar24/CodeAlpha_Network-IDS",
+    logo: "",
+    image: "/assets/projects/network-ids.png",
+    tags: [
+      { id: 1, name: "Python", path: "/assets/logos/python.svg" },
+      { id: 2, name: "Scapy", path: "/assets/logos/scapy.svg" },
+      { id: 3, name: "Pandas", path: "/assets/logos/pandas.svg" },
+      { id: 4, name: "scikit-learn", path: "/assets/logos/sklearn.svg" },
+    ],
+  },
+  {
+    id: 2,
+    title: "Network Packet Sniffer",
+    description:
+      "A lightweight packet capture and analysis tool built from scratch that dissects TCP, UDP, ICMP, and HTTP traffic for forensic investigation and network diagnostics.",
+    subDescription: [
+      "Implemented raw socket packet capture on both Linux and Windows using socket.AF_PACKET and WinPcap integration.",
+      "Built a custom protocol parser that decodes Ethernet, IP, TCP, UDP, and application-layer headers into structured JSON.",
+      "Added live filtering with BPF-style expressions, enabling users to capture only specific ports, IPs, or protocols.",
+      "Exported captured sessions to PCAP format for analysis in Wireshark, with built-in hexdump and ASCII payload views.",
+    ],
+    href: "https://github.com/Namankumar24/CodeAlpha_Sniffer",
+    logo: "",
+    image: "/assets/projects/packet-sniffer.png",
+    tags: [
+      { id: 1, name: "Python", path: "/assets/logos/python.svg" },
+      { id: 2, name: "libpcap", path: "/assets/logos/libpcap.svg" },
+      { id: 3, name: "Wireshark", path: "/assets/logos/wireshark.svg" },
+      { id: 4, name: "Bash", path: "/assets/logos/bash.svg" },
+    ],
+  },
+  {
+    id: 3,
+    title: "Secure Code Review Automation",
+    description:
+      "A Python-based static analysis tool that scans codebases for OWASP Top 10 vulnerabilities using AST traversal, pattern matching, and taint analysis.",
+    subDescription: [
+      "Parsed Python, JavaScript, and Java source code into AST trees using the ast and javalang modules for deep structural analysis.",
+      "Implemented regex and AST-based detection for SQL injection, XSS, command injection, hardcoded secrets, and insecure deserialization.",
+      "Built a severity scoring engine using CVSS-like metrics that ranks vulnerabilities by exploitability and impact.",
+      "Generated detailed HTML reports with line-by-line annotations, remediation guidance, and CWE references.",
+    ],
+    href: "https://github.com/Namankumar24/CodeAlpha_SecureCodeReview",
+    logo: "",
+    image: "/assets/projects/secure-review.png",
+    tags: [
+      { id: 1, name: "Python", path: "/assets/logos/python.svg" },
+      { id: 2, name: "AST", path: "/assets/logos/ast.svg" },
+      { id: 3, name: "Regex", path: "/assets/logos/regex.svg" },
+      { id: 4, name: "HTML", path: "/assets/logos/html5.svg" },
+    ],
+  },
+  {
+    id: 4,
+    title: "Guidely — Career Guidance Platform",
+    description:
+      "A full-stack personalized career guidance web application that connects users with mentors, tracks skill development, and recommends career paths based on AI analysis.",
+    subDescription: [
+      "Built a responsive React frontend with Tailwind CSS, featuring real-time chat, mentor booking, and progress dashboards.",
+      "Developed a RESTful Node.js/Express API with MongoDB, handling user authentication with JWT and role-based access control.",
+      "Implemented an AI recommendation engine using collaborative filtering to suggest career paths based on user skills and interests.",
+      "Integrated Stripe for payment processing, Cloudinary for media storage, and SendGrid for email notifications.",
+    ],
+    href: "https://github.com/Nikhil-Vzo/Guidely",
+    logo: "",
+    image: "/assets/projects/guidely.png",
+    tags: [
+      { id: 1, name: "React", path: "/assets/logos/react.svg" },
+      { id: 2, name: "Node.js", path: "/assets/logos/nodejs.svg" },
+      { id: 3, name: "MongoDB", path: "/assets/logos/mongodb.svg" },
+      { id: 4, name: "Tailwind", path: "/assets/logos/tailwindcss.svg" },
+    ],
+  },
+  {
+    id: 5,
+    title: "FairWater SCADA Management",
+    description:
+      "An industrial control system monitoring dashboard for water treatment SCADA networks, providing real-time telemetry, alarm management, and secure remote access.",
+    subDescription: [
+      "Developed a Flask-based web dashboard that interfaces with Modbus TCP/RTU sensors to display real-time water quality metrics.",
+      "Implemented MQTT broker integration for IoT sensor data ingestion, handling 1000+ messages per second with Redis caching.",
+      "Built a role-based access control system with OAuth2, isolating operator, engineer, and admin privileges per NIST guidelines.",
+      "Created anomaly detection for sensor drift using statistical process control, alerting engineers to potential equipment failures.",
+    ],
+    href: "https://github.com/Nikhil-Vzo/FairWater_Scada-Management",
+    logo: "",
+    image: "/assets/projects/scada.png",
+    tags: [
+      { id: 1, name: "Python", path: "/assets/logos/python.svg" },
+      { id: 2, name: "Flask", path: "/assets/logos/flask.svg" },
+      { id: 3, name: "MQTT", path: "/assets/logos/mqtt.svg" },
+      { id: 4, name: "Modbus", path: "/assets/logos/modbus.svg" },
+    ],
+  },
+  {
+    id: 6,
+    title: "Malware Detection & Analysis Sandbox",
+    description:
+      "An automated malware analysis sandbox that detonates suspicious files in an isolated environment, captures behavior, and generates IOC reports for SOC teams.",
+    subDescription: [
+      "Built a Docker-based isolated sandbox with seccomp and AppArmor profiles to safely execute and monitor unknown binaries.",
+      "Captured system call traces using strace and generated behavioral signatures with YARA rules for family identification.",
+      "Implemented network traffic capture with tcpdump and automated C2 domain extraction for threat intelligence feeds.",
+      "Created a web dashboard with React and Flask for analysts to upload samples, view reports, and export IOCs in STIX/TAXII format.",
+    ],
+    href: "",
+    logo: "",
+    image: "/assets/projects/malware.png",
+    tags: [
+      { id: 1, name: "Python", path: "/assets/logos/python.svg" },
+      { id: 2, name: "Docker", path: "/assets/logos/docker.svg" },
+      { id: 3, name: "YARA", path: "/assets/logos/yara.svg" },
+      { id: 4, name: "React", path: "/assets/logos/react.svg" },
+    ],
+  },
+];
+
+export const mySocials = [
+  {
+    name: "GitHub",
+    href: "https://github.com/Namankumar24",
+    icon: "/assets/socials/github.svg",
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/namankumar24",
+    icon: "/assets/socials/linkedIn.svg",
+  },
+  {
+    name: "Twitter",
+    href: "https://twitter.com/namankumar24",
+    icon: "/assets/socials/twitter.svg",
+  },
+  {
+    name: "HackTheBox",
+    href: "https://app.hackthebox.com/profile/namankumar24",
+    icon: "/assets/socials/hackthebox.svg",
+  },
+];
+
+export const experiences = [
+  {
+    title: "Cybersecurity Intern",
+    job: "CodeAlpha",
+    date: "2026",
+    contents: [
+      "Developed a Network Intrusion Detection System using Python and Scapy, detecting port scans, ARP spoofing, and SYN floods in real time.",
+      "Built a packet sniffer from scratch with raw sockets, protocol parsing, and PCAP export for forensic analysis.",
+      "Created a secure code review automation tool that detects OWASP Top 10 vulnerabilities using AST traversal and pattern matching.",
+      "Authored detailed security documentation and remediation guides for each identified vulnerability class.",
+    ],
+  },
+  {
+    title: "Full-Stack Developer",
+    job: "Guidely & FairWater",
+    date: "2024-2025",
+    contents: [
+      "Built Guidely, a career guidance platform connecting students with mentors using React, Node.js, and MongoDB with AI recommendations.",
+      "Developed FairWater SCADA management dashboard for water treatment monitoring with Modbus TCP and MQTT integrations.",
+      "Implemented role-based access control and OAuth2 authentication aligned with NIST industrial security guidelines.",
+      "Deployed both applications to production with CI/CD pipelines, Docker containers, and AWS cloud infrastructure.",
+    ],
+  },
+  {
+    title: "Security Researcher",
+    job: "Independent",
+    date: "2024-Present",
+    contents: [
+      "Completed TryHackMe and HackTheBox CTF rooms focusing on web exploitation, privilege escalation, and reverse engineering.",
+      "Built a malware analysis sandbox with Docker isolation, YARA rule generation, and STIX IOC export for SOC workflows.",
+      "Published security write-ups on Medium covering CVE analysis, exploitation techniques, and defense strategies.",
+      "Active contributor to open-source security tools, submitting bug fixes and feature improvements to community projects.",
+    ],
+  },
+];
+
+export const reviews = [
+  {
+    name: "Sarah Chen",
+    username: "@sarahc_sec",
+    body: "Naman's NIDS caught an active port scan on our network that our commercial firewall missed. Impressive for a student project.",
+    img: "https://robohash.org/sarahc",
+  },
+  {
+    name: "Marcus Johnson",
+    username: "@mjohnson_infosec",
+    body: "The packet sniffer he built is cleaner than most commercial tools I've seen. The protocol parser is particularly well-structured.",
+    img: "https://robohash.org/marcusj",
+  },
+  {
+    name: "Priya Sharma",
+    username: "@priya_sharma",
+    body: "Naman's secure code review tool caught an SQL injection in our legacy Python API that had been there for three years. Invaluable.",
+    img: "https://robohash.org/priya",
+  },
+  {
+    name: "David Kim",
+    username: "@dkim_blue",
+    body: "The FairWater SCADA dashboard was exactly what our industrial team needed. Clean, secure, and production-ready from day one.",
+    img: "https://robohash.org/davidk",
+  },
+  {
+    name: "Emma Rodriguez",
+    username: "@emma_rod",
+    body: "Guidely's AI recommendation engine matched students with mentors with 90% satisfaction. Naman's full-stack skills are remarkable.",
+    img: "https://robohash.org/emmar",
+  },
+  {
+    name: "Alex Turner",
+    username: "@alex_turner_cto",
+    body: "Hired Naman for a security audit. His depth of knowledge across networking, web security, and code analysis is rare for someone his age.",
+    img: "https://robohash.org/alext",
+  },
+  {
+    name: "Lisa Wang",
+    username: "@lisaw_secops",
+    body: "Naman's malware sandbox writeup taught our SOC team more about behavioral analysis than a week of vendor training. Brilliant work.",
+    img: "https://robohash.org/lisaw",
+  },
+  {
+    name: "James O'Brien",
+    username: "@james_obrien",
+    body: "He debugged a Modbus protocol issue in our SCADA network that had stumped our vendor's support team for two weeks. Incredible.",
+    img: "https://robohash.org/jameso",
+  },
+];

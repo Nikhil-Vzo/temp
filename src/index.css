@@ -1,0 +1,244 @@
+@import "tailwindcss";
+
+@theme {
+  --color-void: #050510;
+  --color-terminal: #0a0a15;
+  --color-surface: #0d0d1a;
+  --color-elevated: #111122;
+  --color-border: #1a1a2e;
+  --color-border-glow: #33c2cc20;
+  --color-accent: #33c2cc;
+  --color-accent-dim: #2a9db0;
+  --color-amber: #d6995c;
+  --color-alert: #ff0040;
+  --color-alert-dim: #cc0033;
+  --color-text: #e8e8f0;
+  --color-text-muted: #8888a0;
+  --color-text-dim: #444466;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --animate-orbit: orbit 50s linear infinite;
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-marquee-vertical: marquee-vertical 40s linear infinite;
+  --animate-cursor: cursor-blink 1s step-end infinite;
+  --animate-glitch: glitch 1s linear infinite;
+
+  @keyframes orbit {
+    0% {
+      transform: rotate(calc(var(--angle) * 1deg))
+        translateY(calc(var(--radius) * 1px)) rotate(calc(var(--angle) * -1deg));
+    }
+    100% {
+      transform: rotate(calc(var(--angle) * 1deg + 360deg))
+        translateY(calc(var(--radius) * 1px))
+        rotate(calc((var(--angle) * -1deg) - 360deg));
+    }
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-100% - var(--gap))); }
+  }
+
+  @keyframes marquee-vertical {
+    from { transform: translateY(0); }
+    to { transform: translateY(calc(-100% - var(--gap))); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 5px #33c2cc40, 0 0 20px #33c2cc20; }
+    50% { box-shadow: 0 0 10px #33c2cc60, 0 0 40px #33c2cc30; }
+  }
+
+  @keyframes cursor-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  @keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+  }
+}
+
+body {
+  background: var(--color-void);
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: #33c2cc40;
+  color: #33c2cc;
+}
+
+.c-space {
+  @apply sm:px-10 px-5 lg:px-15;
+}
+
+.hover-animation {
+  @apply hover:-translate-y-1 duration-200;
+}
+
+.section-spacing {
+  @apply min-h-screen mt-20 md:mt-30;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}
+
+.text-heading {
+  @apply font-bold text-3xl md:text-4xl;
+  font-family: var(--font-sans);
+  letter-spacing: -0.02em;
+}
+
+.headtext {
+  @apply mt-2 mb-2 text-xl;
+}
+
+.subtext {
+  @apply text-text-muted text-sm md:text-base text-pretty;
+}
+
+/* Navigation */
+.nav-ul {
+  @apply flex flex-col items-center gap-4 sm:flex-row md:gap-6 relative z-20;
+}
+
+.nav-li {
+  @apply text-text-muted hover:text-white max-sm:w-full max-sm:rounded-md py-2 max-sm:px-5;
+}
+
+.nav-link {
+  @apply text-lg md:text-base hover:text-accent transition-colors;
+}
+
+/* Button Components */
+.btn {
+  @apply relative px-1 py-4 text-sm text-center rounded-full font-extralight bg-surface w-[12rem] cursor-pointer overflow-hidden;
+}
+
+/* Glowing Border */
+.glow-border {
+  border: 1px solid #1a1a2e;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.glow-border:hover {
+  border-color: #33c2cc40;
+  box-shadow: 0 0 15px #33c2cc20, inset 0 0 15px #33c2cc10;
+}
+
+/* Grid Background Pattern */
+.grid-bg {
+  background-image:
+    linear-gradient(#33c2cc08 1px, transparent 1px),
+    linear-gradient(90deg, #33c2cc08 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Scanline Overlay */
+.scanlines {
+  position: relative;
+}
+.scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    #00000008 2px,
+    #00000008 4px
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* About Section Grid */
+.grid-1 {
+  @apply row-span-2 md:col-span-3 h-[15rem] md:h-full relative overflow-hidden hover:-translate-y-1 duration-200;
+}
+.grid-2 {
+  @apply row-span-1 md:col-span-3 h-[15rem] md:h-full relative overflow-hidden hover:-translate-y-1 duration-200;
+}
+.grid-3 {
+  @apply row-span-1 md:col-span-3 h-[15rem] md:h-full relative overflow-hidden hover:-translate-y-1 duration-200;
+}
+.grid-4 {
+  @apply row-span-1 md:col-span-2 h-[15rem] md:h-full relative overflow-hidden hover:-translate-y-1 duration-200;
+}
+.grid-5 {
+  @apply row-span-1 md:col-span-4 h-[15rem] md:h-full relative overflow-hidden hover:-translate-y-1 duration-200;
+}
+
+.grid-default-color {
+  @apply p-6 bg-gradient-to-b from-elevated to-surface rounded-2xl border border-border;
+}
+.grid-special-color {
+  @apply p-6 bg-gradient-to-b from-accent/5 to-surface rounded-2xl border border-accent/20;
+}
+.grid-black-color {
+  @apply p-6 bg-gradient-to-tl from-[#0f0f1a] via-[#080815] to-[#0f0f1a] rounded-2xl border border-border;
+}
+
+/* Contact Section */
+.field-label {
+  @apply text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70;
+}
+
+.field-input {
+  @apply w-full min-h-10 rounded-md px-3 py-2 text-sm bg-white/5 transition duration-200 placeholder-text-dim border border-border mt-2;
+}
+
+.field-input-focus {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 focus-visible:border-accent/50;
+}
+
+/* Code Block Style */
+.code-block {
+  @apply bg-surface border border-border rounded-lg p-4 font-mono text-sm text-text-muted overflow-x-auto;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050510;
+}
+::-webkit-scrollbar-thumb {
+  background: #33c2cc30;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #33c2cc60;
+}
+
+/* GPU acceleration for animated elements */
+.animate-marquee,
+.animate-marquee-vertical,
+.animate-orbit {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -12,7 +12,7 @@ const Footer = lazy(() => import("./sections/Footer"));
 
 const App = () => {
   return (
-    <div className="w-full relative bg-void">
+    <div className="w-full relative">
       <Scanlines />
       <Navbar />
       <Hero />

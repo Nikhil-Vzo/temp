@@ -37,10 +37,12 @@ const Hero = () => {
     <section
       ref={sectionRef}
       id="home"
-      className="relative flex items-start justify-center min-h-screen overflow-hidden md:items-start md:justify-start c-space w-full"
+      className="relative min-h-screen w-full overflow-hidden"
     >
-      <HeroText />
       <ParallaxBackground />
+      <div className="mx-auto max-w-7xl w-full flex items-start justify-center md:items-start md:justify-start">
+        <HeroText />
+      </div>
       <figure
         className="absolute inset-0 w-full h-full pointer-events-none"
       >

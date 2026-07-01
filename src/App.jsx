@@ -12,18 +12,20 @@ const Footer = lazy(() => import("./sections/Footer"));
 
 const App = () => {
   return (
-    <div className="container mx-auto max-w-7xl relative">
+    <div className="w-full relative bg-void">
       <Scanlines />
       <Navbar />
       <Hero />
-      <Suspense fallback={<div className="min-h-screen" />}>
-        <About />
-        <Projects />
-        <Experiences />
-        <Testimonial />
-        <Contact />
-        <Footer />
-      </Suspense>
+      <div className="container mx-auto max-w-7xl relative">
+        <Suspense fallback={<div className="min-h-screen" />}>
+          <About />
+          <Projects />
+          <Experiences />
+          <Testimonial />
+          <Contact />
+          <Footer />
+        </Suspense>
+      </div>
     </div>
   );
 };

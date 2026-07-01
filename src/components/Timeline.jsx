@@ -20,7 +20,7 @@ export const Timeline = ({ data }) => {
         className="flex justify-start pt-10 md:pt-40 md:gap-10"
       >
         <div className="sticky z-40 flex flex-col items-center self-start max-w-xs md:flex-row top-40 lg:max-w-sm md:w-full">
-          <div className="absolute flex items-center justify-center w-10 h-10 rounded-full left-5 md:left-[100px] bg-surface border border-accent/30">
+          <div className="absolute flex items-center justify-center w-10 h-10 rounded-full left-5 bg-surface border border-accent/30">
             <div className="w-4 h-4 p-2 border rounded-full bg-accent/20 border-accent/50" />
           </div>
           <div className="flex-col hidden gap-2 text-xl font-bold md:flex md:pl-20 md:text-4xl text-text-muted font-mono">
@@ -52,7 +52,7 @@ export const Timeline = ({ data }) => {
       <div ref={ref} className="relative pb-20">
         {timelineItems}
         <div
-          className="absolute md:left-30 left-10 top-0 bottom-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-accent/20 to-transparent to-[99%] [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
+          className="absolute left-10 top-0 bottom-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-accent/20 to-transparent to-[99%] [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
         >
           <motion.div
             style={{
